@@ -95,6 +95,9 @@ GLFWAPI int  GLFWAPIENTRY glfwInit(void)
     DLSYM(glfwGetKey);
     DLSYM(glfwGetCursorPos);
     DLSYM(glfwSetCursorPos);
+    DLSYM(glfwJoystickPresent);
+    DLSYM(glfwGetJoystickAxes);
+    DLSYM(glfwGetJoystickButtons);
 
 #undef DLSYM
 

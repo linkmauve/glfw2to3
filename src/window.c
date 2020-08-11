@@ -75,6 +75,7 @@ GLFWAPI int  GLFWAPIENTRY glfwOpenWindow(int width, int height, int redbits, int
     GETPROCADDRESS(glGetString);
     GETPROCADDRESS(glPixelStorei);
     GETPROCADDRESS(glGetTexParameteriv);
+    GETPROCADDRESS(glGetIntegerv);
     GETPROCADDRESS(glTexParameteri);
     GETPROCADDRESS(glTexImage2D);
 
