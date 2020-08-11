@@ -1,5 +1,5 @@
 project('glfw2to3', 'c',
-  version: '0.1.0',
+  version: '2.7.10',
   meson_version: '>=0.54',
   default_options: [
     'warning_level=3',
