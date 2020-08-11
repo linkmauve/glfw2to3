@@ -29,10 +29,22 @@ cc = meson.get_compiler('c')
 dl = cc.find_library('dl')
 pthread = cc.find_library('pthread')
 
-shared_library('glfw',
+libglfw = shared_library('glfw',
   sources,
   include_directories: includes,
   dependencies: [dl, pthread],
-  version : '2.7.10',
-  soversion : '2'
+  version: '2.7.10',
+  soversion: '2',
+  install: true,
+)
+
+install_headers('include/GL/glfw.h', subdir : 'GL')
+
+pkg = import('pkgconfig')
+pkg.generate(
+  libraries: [libglfw],
+  version: '2.7.10',
+  name: 'libglfw',
+  filebase: 'libglfw',
+  description: 'Porting library to make GLFW 2.x games run on top of GLFW 3.x',
 )
