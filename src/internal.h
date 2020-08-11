@@ -77,7 +77,7 @@ typedef const GLubyte* (* PFN_glGetString)(GLenum);
 typedef void (* PFN_glPixelStorei)(GLenum, GLint);
 typedef void (* PFN_glGetTexParameteriv)(GLenum, GLenum, GLint*);
 typedef void (* PFN_glGetIntegerv)(GLenum, GLint*);
-typedef void (* PFN_glTexParameteri)(GLenum, GLenum, GLboolean);
+typedef void (* PFN_glTexParameteri)(GLenum, GLenum, GLint);
 typedef void (* PFN_glTexImage2D)(GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid*);
 
 #define GL_FALSE 0
