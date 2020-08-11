@@ -51,5 +51,5 @@ GLFWAPI void GLFWAPIENTRY glfwGetDesktopMode(GLFWvidmode *mode)
 {
     GLFWmonitor* monitor = _glfw.glfwGetPrimaryMonitor();
     const vidmode3* vidmode3 = _glfw.glfwGetVideoMode(monitor);
-    memcpy(mode, &vidmode3, sizeof(GLFWvidmode));
+    memcpy(mode, vidmode3, sizeof(GLFWvidmode));
 }
