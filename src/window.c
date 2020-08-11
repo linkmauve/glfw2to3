@@ -28,6 +28,7 @@
 #include "internal.h"
 
 #include <stdio.h>
+#include <dlfcn.h>
 
 /* Window handling */
 
@@ -60,7 +61,14 @@ GLFWAPI int  GLFWAPIENTRY glfwOpenWindow(int width, int height, int redbits, int
     _glfw.sym = (PFN_##sym)glfwGetProcAddress(#sym); \
     if (!_glfw.sym) \
     { \
-        return GL_FALSE; \
+        if (_glfw.gl_handle) \
+        { \
+            _glfw.sym = dlsym(_glfw.gl_handle, #sym); \
+        } \
+        if (!_glfw.sym) \
+        { \
+            return GL_FALSE; \
+        } \
     } \
 } while (0)
 

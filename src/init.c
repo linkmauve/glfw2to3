@@ -44,6 +44,15 @@ GLFWAPI int  GLFWAPIENTRY glfwInit(void)
         }
     }
 
+    if (!_glfw.gl_handle)
+    {
+        _glfw.gl_handle = dlopen("libOpenGL.so.0", RTLD_LAZY);
+        if (!_glfw.gl_handle)
+        {
+            _glfw.gl_handle = dlopen("libGL.so.1", RTLD_LAZY);
+        }
+    }
+
 #define DLSYM(sym) do { \
     _glfw.sym = (PFN_##sym)dlsym(_glfw.handle, #sym); \
     if (!_glfw.sym) \
@@ -98,6 +107,11 @@ GLFWAPI void GLFWAPIENTRY glfwTerminate(void)
     {
         dlclose(_glfw.handle);
         _glfw.handle = NULL;
+    }
+    if (_glfw.gl_handle)
+    {
+        dlclose(_glfw.gl_handle);
+	_glfw.gl_handle = NULL;
     }
 }
 

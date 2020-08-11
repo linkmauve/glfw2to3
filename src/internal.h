@@ -85,6 +85,7 @@ typedef void (* PFN_glTexImage2D)(GLenum, GLint, GLint, GLsizei, GLsizei, GLint,
 
 typedef struct _GLFWlibrary {
     void* handle;
+    void* gl_handle;
 
     GLFWwindow* window;
     void (*windowsizefun)(int, int);
