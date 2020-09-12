@@ -120,7 +120,7 @@ GLFWAPI void GLFWAPIENTRY glfwGetWindowSize(int *width, int *height)
 {
     if (_glfw.window)
     {
-        _glfw.glfwGetWindowSize(_glfw.window, width, height);
+        _glfw.glfwGetFramebufferSize(_glfw.window, width, height);
     }
 }
 
@@ -128,7 +128,9 @@ GLFWAPI void GLFWAPIENTRY glfwSetWindowSize(int width, int height)
 {
     if (_glfw.window)
     {
-        _glfw.glfwSetWindowSize(_glfw.window, width, height);
+        float xscale, yscale;
+        _glfw.glfwGetWindowContentScale(_glfw.window, &xscale, &yscale);
+        _glfw.glfwSetWindowSize(_glfw.window, width * xscale, height * yscale);
     }
 }
 

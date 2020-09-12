@@ -79,7 +79,8 @@ GLFWAPI int  GLFWAPIENTRY glfwInit(void)
     DLSYM(glfwSetMouseButtonCallback);
     DLSYM(glfwSetCursorPosCallback);
     DLSYM(glfwSetScrollCallback);
-    DLSYM(glfwGetWindowSize);
+    DLSYM(glfwGetFramebufferSize);
+    DLSYM(glfwGetWindowContentScale);
     DLSYM(glfwSetWindowSize);
     DLSYM(glfwGetWindowAttrib);
     DLSYM(glfwSetWindowPos);
